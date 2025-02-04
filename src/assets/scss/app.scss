@@ -1,0 +1,94 @@
+// Import all of Bootstrap's CSS
+@use "bootstrap/scss/bootstrap.scss";
+
+
+.main_ {
+  display: flex;
+  // border: 3px solid red;
+  width: 90vw;
+  height: 100vh;
+}
+
+.left {
+  width: 30%;
+  // border: 3px solid green;
+}
+
+.right {
+  flex-grow: 1;
+  // border: 3px solid blue;
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.step {
+  display: flex;
+  color: #ccc;
+  align-items: center;
+  // flex-direction: column;
+}
+
+.step .circle {
+  color: black;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+}
+
+.step.active .circle {
+  color: white;
+  background-color: #ff6b6b;
+}
+
+.step .line {
+  height: 2px;
+  width: 100px;
+  margin: 0 10px;
+  background-color: #ccc;
+}
+
+.label {
+  left: 0;
+  top: -40px;
+  display: flex;
+  color: white;
+  padding: 5px 10px;
+  position: absolute;
+  border-radius: 5px;
+  align-items: center;
+  background-color: #ff6b6b;
+}
+
+.label .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff6b6b;
+}
+
+
+.photo-uploader {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.upload-box input[type='file'] {
+  display: none;
+}
+
+.photo-preview img {
+  border: 1px solid #ddd;
+  padding: 4px;
+  border-radius: 8px;
+}
