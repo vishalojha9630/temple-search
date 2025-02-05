@@ -9,7 +9,6 @@ const StepIndicator = ({ currentStep, label }) => {
         <>
           {currentStep === index + 1 &&
             <div className="label" style={{ left: `${index > 0 ? `${(index * 20)}%` : "-40px"}` }}>
-              <span className="dot"></span>
               <span>{label}</span>
             </div>}
 

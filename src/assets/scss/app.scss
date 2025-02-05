@@ -4,19 +4,16 @@
 
 .main_ {
   display: flex;
-  // border: 3px solid red;
   width: 90vw;
   height: 100vh;
 }
 
 .left {
   width: 30%;
-  // border: 3px solid green;
 }
 
 .right {
   flex-grow: 1;
-  // border: 3px solid blue;
 }
 
 .step-indicator {
@@ -58,11 +55,10 @@
 }
 
 .label {
-  left: 0;
   top: -40px;
   display: flex;
   color: white;
-  padding: 5px 10px;
+  padding: 5px 20px;
   position: absolute;
   border-radius: 5px;
   align-items: center;

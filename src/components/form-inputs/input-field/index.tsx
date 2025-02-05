@@ -1,8 +1,8 @@
-import React, { useState, ChangeEvent, FocusEvent } from 'react'
+import React, { ChangeEvent, FocusEvent } from 'react'
 
 interface InputFieldProps {
 	name?: string;
-	type?: 'text' | 'password' | 'email' | 'number' | undefined | 'date';
+	type?: 'text' | 'password' | 'email' | 'number' | undefined | 'time' | 'date';
 	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 	onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
 	value?: string | string[];
@@ -28,18 +28,6 @@ const InputField: React.FC<InputFieldProps> = ({
 	className = '',
 	error
 }: InputFieldProps) => {
-	const [eyeOn, setEyeOn] = useState(false)
-	const [fieldType, setFieldType] = useState(type)
-
-	const toggleEyeOn = () => {
-		if (eyeOn === false) {
-			setEyeOn(true)
-			setFieldType('text')
-		} else {
-			setEyeOn(false)
-			setFieldType('password')
-		}
-	}
 
 	return (
 		<div className={`form-group mb-3 ${className}`}>
@@ -50,7 +38,7 @@ const InputField: React.FC<InputFieldProps> = ({
 			)}
 
 			<input
-				type={fieldType ? fieldType : 'text'}
+				type={type || 'text'}
 				autoComplete="off"
 				name={name}
 				placeholder={placeholder}

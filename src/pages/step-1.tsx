@@ -120,7 +120,6 @@ const StepOne = ({ formik, moveNext }: any) => {
                   value={{ label: formik.values.state }}
                   getOptionLabel={(option: { [key: string]: string }) => option?.label}
                   getOptionValue={(option: { [key: string]: string }) => option?.value}
-                  error={formik?.touched.city && formik.errors.city}
                 />
               </div>
 

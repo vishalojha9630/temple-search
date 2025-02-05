@@ -47,8 +47,7 @@ const StepTwo = ({ formik, moveNext, movePrevious }: any) => {
 
           <div className="col-md-7">
             <StepIndicator currentStep={2} label="Facilities" />
-
-            <form>
+            <form onSubmit={formik.handleSubmit}>
               <CheckBox
                 name="facilities"
                 label='Select the facilities'

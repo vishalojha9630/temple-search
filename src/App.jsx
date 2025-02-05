@@ -37,7 +37,26 @@ function App() {
       established_date: '',
       facilities: [],
       photos: [],
-      
+
+      temple_structure: '',
+      floors: '',
+      rooms: '',
+      halls: '',
+      idol_god: '',
+      structure_photos: '',
+
+      summer_opening: '',
+      summer_closing: '',
+      winter_opening: '',
+      winter_closing: '',
+      morning_puja: '',
+      morning_arti: '',
+      afternoon_puja: '',
+      evening_arti: '',
+      pandit: '',
+      pandit_name: '',
+      pandit_contact: '',
+      pandit_photo: '',
     },
 
     onSubmit: (values) => {

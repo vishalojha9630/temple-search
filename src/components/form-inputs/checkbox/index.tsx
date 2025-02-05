@@ -29,7 +29,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({
     <div className={`form-group mb-2 ${className}`}>
       {label && <label className="form-label mb-1 d-block">{label}</label>}
 
-      <div className='d-flex flex-wrap gap-2'>
+      <div className='d-flex flex-wrap gap-3'>
         {options.map((option, i) => (
           <div className={`form-check`} key={i}>
             <input
