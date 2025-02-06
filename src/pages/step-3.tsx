@@ -25,14 +25,14 @@ const StepThree = ({ formik, moveNext, movePrevious }: any) => {
 
   const handleCheckbox = (event: any) => {
     const { value } = event.target;
-    const facilities = formik.values.facilities;
-    if (facilities.includes(value)) {
+    const idol_god = formik.values.idol_god;
+    if (idol_god?.includes(value)) {
       formik.setFieldValue(
-        'facilities',
-        facilities?.filter((facility: any) => facility !== value)
+        'idol_god',
+        idol_god?.filter((idol_god: any) => idol_god !== value)
       );
     } else {
-      formik.setFieldValue('facilities', [...facilities, value]);
+      formik.setFieldValue('idol_god', [...idol_god, value]);
     }
   }
 
@@ -44,7 +44,7 @@ const StepThree = ({ formik, moveNext, movePrevious }: any) => {
       <div className="card shadow p-3 mb-5 bg-body">
         <div className="row">
           <div className="col-md-5">
-            <img src={stepThree} alt="Temple Image" className="img-fluid" />
+            <img src={stepThree} alt="Temple Image" className="img-fluid"  />
           </div>
 
           <div className="col-md-7">

@@ -21,7 +21,7 @@ const StepOne = ({ formik, moveNext }: any) => {
       <div className="card shadow p-3 mb-5 bg-body">
         <div className="row">
           <div className="col-md-4">
-            <img src={stepOne} alt="Temple Image" className="img-fluid" />
+            <img src={stepOne} alt="Temple Image" className="img-fluid image-style" />
           </div>
 
           <div className="col-md-7">
@@ -30,11 +30,11 @@ const StepOne = ({ formik, moveNext }: any) => {
             <form onSubmit={formik.handleSubmit}>
               <InputField
                 type="text"
-                name="name"
+                name="temple_name"
                 label='Temple name'
-                placeholder='Enter name'
-                value={formik.values.name}
+                placeholder='Enter temple name'
                 onChange={formik.handleChange}
+                value={formik.values.temple_name}
               />
 
               <div className="form-group mb-3">
@@ -48,7 +48,6 @@ const StepOne = ({ formik, moveNext }: any) => {
                     }}
                     inputProps={{
                       name: 'contact',
-                      placeholder: 'Enter Mobile Number',
                     }}
                     countryCodeEditable={false}
                     inputStyle={{ width: "100%" }}
@@ -62,7 +61,7 @@ const StepOne = ({ formik, moveNext }: any) => {
                 name="established_date"
                 label='Established year'
                 onChange={(value: any) => {
-                  const selectedDate = moment(value).format('DD-MM-YYYY');
+                  const selectedDate = moment(value).format('YYYY-MM-DD');
                   formik.setFieldValue('established_date', selectedDate);
                 }}
                 value={formik.values.established_date}
@@ -149,8 +148,8 @@ const StepOne = ({ formik, moveNext }: any) => {
                   label="Alternative mobile no"
                   onChange={(e: any) => {
                     const inputValue = e.target.value;
-                    const numericValue = inputValue.replace(/\D/g, '');  // Remove non-numeric characters
-                    const trimmedValue = numericValue.slice(0, 10);  // Keep only the first 10 digits
+                    const numericValue = inputValue.replace(/\D/g, '');
+                    const trimmedValue = numericValue.slice(0, 10);
                     formik.setFieldValue('alternate_number', trimmedValue);
                   }}
                   value={formik.values.alternate_number}

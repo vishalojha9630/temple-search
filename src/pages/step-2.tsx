@@ -39,7 +39,7 @@ const StepTwo = ({ formik, moveNext, movePrevious }: any) => {
     <div className="container mt-3">
       <h2 className="mb-4 text-center ">Temple Registration</h2>
 
-      <div className="card shadow p-3 mb-5 bg-body">
+      <div className="card shadow p-3 mb-5 bg-body ">
         <div className="row">
           <div className="col-md-5">
             <img src={stepTwo} alt="Temple Image" className="img-fluid" />
@@ -47,6 +47,7 @@ const StepTwo = ({ formik, moveNext, movePrevious }: any) => {
 
           <div className="col-md-7">
             <StepIndicator currentStep={2} label="Facilities" />
+
             <form onSubmit={formik.handleSubmit}>
               <CheckBox
                 name="facilities"

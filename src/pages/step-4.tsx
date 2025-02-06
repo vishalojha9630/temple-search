@@ -9,7 +9,7 @@ import InputField from '../components/form-inputs/input-field'
 import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2';
 
-const StepFour = ({ formik, moveNext, movePrevious }: any) => {
+const StepFour = ({ formik, movePrevious }: any) => {
   return (
     <div className="container mt-5">
       <h2 className="mb-4 text-center ">Temple Registration</h2>
@@ -20,26 +20,28 @@ const StepFour = ({ formik, moveNext, movePrevious }: any) => {
           </div>
 
           <div className="col-md-7">
-            <StepIndicator currentStep={4} label="Temples and Assocaiated pandits" />
+            <StepIndicator currentStep={4} label="Temples and Associated pandits" />
 
             <form onSubmit={formik.handleSubmit}>
               <div className='mb-3'>
                 <h6>Summer Timings</h6>
                 <div className="d-flex gap-4">
                   <TimerField
-                    name="name"
                     className='col'
-                    label='Opening time'
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
+                    label="Opening time"
+                    onChange={(summer_opening) => {
+                      formik.setFieldValue('summer_opening', summer_opening ?? '')
+                    }}
+                    selected={formik.values.summer_opening}
                   />
 
                   <TimerField
-                    name="name"
                     className='col'
-                    label='Closing time'
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
+                    label="Closing time"
+                    onChange={(summer_closing) => {
+                      formik.setFieldValue('summer_closing', summer_closing ?? '')
+                    }}
+                    selected={formik.values.summer_closing}
                   />
                 </div>
               </div>
@@ -48,19 +50,21 @@ const StepFour = ({ formik, moveNext, movePrevious }: any) => {
                 <h6>Winter Timings</h6>
                 <div className="d-flex gap-4">
                   <TimerField
-                    name="name"
                     className='col'
-                    label='Opening time'
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
+                    label="Opening time"
+                    onChange={(winter_opening) => {
+                      formik.setFieldValue('winter_opening', winter_opening ?? '')
+                    }}
+                    selected={formik.values.winter_opening}
                   />
 
                   <TimerField
-                    name="name"
                     className='col'
-                    label='Closing time'
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
+                    label="Closing time"
+                    onChange={(winter_closing) => {
+                      formik.setFieldValue('winter_closing', winter_closing ?? '')
+                    }}
+                    selected={formik.values.winter_closing}
                   />
                 </div>
               </div>
@@ -69,67 +73,69 @@ const StepFour = ({ formik, moveNext, movePrevious }: any) => {
                 <h6>Event Timings</h6>
                 <div className="d-flex gap-4">
                   <TimerField
-                    name="name"
                     className='col'
-                    label='Morning Puja'
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
+                    label="Morning Puja"
+                    onChange={(morning_puja) => {
+                      formik.setFieldValue('morning_puja', morning_puja ?? '')
+                    }}
+                    selected={formik.values.morning_puja}
                   />
 
                   <TimerField
-                    name="name"
                     className='col'
-                    label='Morning Arti'
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
+                    label="Morning Arti"
+                    onChange={(morning_arti) => {
+                      formik.setFieldValue('morning_arti', morning_arti ?? '')
+                    }}
+                    selected={formik.values.morning_arti}
                   />
                 </div>
 
                 <div className="d-flex gap-4">
                   <TimerField
-                    name="name"
                     className='col'
-                    label='Afternoon Puja'
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
+                    label="Afternoon Puja"
+                    onChange={(afternoon_puja) => {
+                      formik.setFieldValue('afternoon_puja', afternoon_puja ?? '')
+                    }}
+                    selected={formik.values.afternoon_puja}
                   />
 
                   <TimerField
-                    name="name"
                     className='col'
-                    label='Evening Arti'
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
+                    label="Evening Arti"
+                    onChange={(evening_arti) => {
+                      formik.setFieldValue('evening_arti', evening_arti ?? '')
+                    }}
+                    selected={formik.values.evening_arti}
                   />
                 </div>
               </div>
 
               <h6>Associated Pandit details</h6>
               <SelectField
-                name="pandits"
-                label="No of pandits"
                 className="col"
+                name="no_pandit"
+                label="No of pandits"
                 placeholder="Select the no of pandits"
-                value={{ label: formik.values.pandits ?? '' }}
+                value={{ label: formik.values.no_pandit ?? '' }}
                 options={[
                   { label: '1', value: '1' },
                   { label: '2', value: '2' },
                   { label: '3', value: '3' },
-                  { label: '4', value: '4' },
-                  { label: '5', value: '5' },
                 ]}
                 onChange={(e: any) => {
-                  formik.setFieldValue('pandits', e?.value ?? '')
+                  formik.setFieldValue('no_pandit', e?.value ?? '')
                 }}
               />
 
               <InputField
                 type='text'
-                name="name"
                 className='col'
-                label='Name of Pandit(1/1)'
-                value={formik.values.name}
+                name="pandit_name"
+                label='Name of Pandit'
                 onChange={formik.handleChange}
+                value={formik.values.pandit_name}
               />
 
               <div className="form-group mb-3">
@@ -137,12 +143,12 @@ const StepFour = ({ formik, moveNext, movePrevious }: any) => {
                 <div style={{ display: "flex", alignItems: "stretch", gap: "9px" }}>
                   <PhoneInput
                     country='in'
-                    value={formik.values.contact}
+                    value={formik.values.pandit_contact}
                     onChange={(phone) => {
-                      formik.setFieldValue('contact', phone ?? '')
+                      formik.setFieldValue('pandit_contact', phone ?? '')
                     }}
                     inputProps={{
-                      name: 'contact',
+                      name: 'pandit_contact',
                     }}
                     countryCodeEditable={false}
                     inputStyle={{ width: "100%" }}
@@ -152,9 +158,9 @@ const StepFour = ({ formik, moveNext, movePrevious }: any) => {
 
               <PhotoUploader
                 maxFields={1}
-                photos={formik.values.structure_photos || []}
+                photos={formik.values.pandit_photo || []}
                 setPhotos={(photos: string[]) =>
-                  formik.setFieldValue('structure_photos', photos)
+                  formik.setFieldValue('pandit_photo', photos)
                 }
               />
 
@@ -169,7 +175,6 @@ const StepFour = ({ formik, moveNext, movePrevious }: any) => {
                 <Button
                   label='Submit Data'
                   type='submit'
-                  onClick={formik}
                   styleOverrides={{ width: '100%' }}
                 />
               </div>

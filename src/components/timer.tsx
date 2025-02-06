@@ -1,32 +1,28 @@
-import React, { ChangeEvent, FocusEvent } from 'react'
-
+import React, { ChangeEvent } from 'react'
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 interface TimerFieldProps {
-  name?: string;
-  type?: 'text' | 'time' | undefined;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  value?: string | string[];
-  label?: string;
-  placeholder?: string;
-  required?: boolean;
+  selected?: Date | null;
+  onChange?: (date: Date | null) => void;
+
   className?: string;
-  error?: string;
-  readOnly?: boolean;
-  autoComplete?: string
+  placeholderText?: string;
+  label?: string;
+  showTimeSelect?: boolean;
+  showTimeSelectOnly?: boolean;
+  timeIntervals?: number;
 }
 const TimerField: React.FC<TimerFieldProps> = ({
-  name,
-  type = 'time',
-  onChange,
-  onBlur,
-  value,
   label,
-  placeholder = 'Enter here',
-  readOnly = false,
+  selected,
+  onChange,
+  showTimeSelect = true,
+  showTimeSelectOnly = true,
+  timeIntervals = 15,
   className = '',
-  error
-}: TimerFieldProps) => {
+  placeholderText='Select a time'
+}) => {
   return (
     <div className={`form-group mb-3 ${className}`}>
       {label && (
@@ -35,18 +31,17 @@ const TimerField: React.FC<TimerFieldProps> = ({
         </label>
       )}
 
-      <input
-        type={type || 'time'}
-        autoComplete="off"
-        name={name}
-        placeholder={placeholder}
-        readOnly={readOnly}
-        value={value}
+      <DatePicker
+        selected={selected}
         onChange={onChange}
-        onBlur={onBlur}
-        className={`form-control ${error && 'invalid'} `}
+        showTimeSelect={showTimeSelect}
+        showTimeSelectOnly={showTimeSelectOnly}
+        timeIntervals={timeIntervals}
+        dateFormat="h:mm aa"
+        className={`form-control `}
+        showTimeCaption={false}
+        placeholderText={placeholderText}
       />
-
     </div>
   )
 }

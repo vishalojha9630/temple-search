@@ -8,7 +8,11 @@ const StepIndicator = ({ currentStep, label }) => {
       {Array.from({ length: steps }, (_, index) => index + 1).map((step, index) => (
         <>
           {currentStep === index + 1 &&
-            <div className="label" style={{ left: `${index > 0 ? `${(index * 20)}%` : "-40px"}` }}>
+            <div className="label"
+              style={{
+                left: `${index > 0 ? `${(index * 20)}%` : "-20px"}`,
+                // top: `${index > 0 ? `${(index * -30)}px` : "-35px"}`
+              }}>
               <span>{label}</span>
             </div>}
 
